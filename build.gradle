@@ -1,4 +1,4 @@
-buildscript {
+buildscript { // 플러그인 의존성 관리를 위한 설정 (플러그인)
     ext { // build.gradle에서 사용하는 전역변수를 설정하겠다는 키워드
         springBootVersion = '2.1.7.RELEASE'
     }
@@ -28,7 +28,7 @@ repositories {
     jcenter()
 }
 
-dependencies {
+dependencies { // 프로젝트 개발에 필요한 의존성(라이브러리)를 선언하는 곳
     implementation('org.springframework.boot:spring-boot-starter-web')
     implementation('org.projectlombok:lombok')
     annotationProcessor('org.projectlombok:lombok:1.18.8')
