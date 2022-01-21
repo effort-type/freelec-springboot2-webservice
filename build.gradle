@@ -48,5 +48,5 @@ dependencies { // 프로젝트 개발에 필요한 의존성(라이브러리)를
 }
 
 test {
-    useJUnitPlatform()
+    //useJUnitPlatform()
 }
