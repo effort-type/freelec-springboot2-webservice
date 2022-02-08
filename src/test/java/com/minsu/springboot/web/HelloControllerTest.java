@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.data.jpa.mapping.JpaMetamodelMappingContext;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
@@ -24,7 +25,7 @@ public class HelloControllerTest {
     @Autowired // 스프링이 관리하는 Bean을 주입 받는 어노테이션
     private MockMvc mvc; // 웹 API를 테스트 할 때 사용, 스프링 MVC 테스트의 시작점, 이 클래스를 통해 웹에 대한 API 테스트 가능
 
-
+    @WithMockUser(roles = "USER")
     @Test
     public void return_hello() throws Exception {
         String hello = "hello";
@@ -34,6 +35,7 @@ public class HelloControllerTest {
                 .andExpect(content().string(hello));
     }
 
+    @WithMockUser(roles = "USER")
     @Test
     public void result_helloDto() throws Exception {
         String name = "hello";
